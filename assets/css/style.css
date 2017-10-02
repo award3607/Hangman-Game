@@ -1,0 +1,10 @@
+#word {
+	/*text-decoration: underline;*/
+	letter-spacing: 5px;
+	/*visibility: hidden;*/
+}
+
+.underline {
+	text-decoration: underline;
+}
+
