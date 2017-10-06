@@ -5,6 +5,7 @@ var Game = {
 	guessWordHtml: "",
 	guessesRemaining: 15,
 	lettersGuessed: [],
+	wordArr: [],
 
 	initGame: function() {
 		this.wins = 0;
@@ -21,11 +22,14 @@ var Game = {
 	},
 
 	setWord: function() {
+		document.getElementById("word").innerHTML = "";
+		this.guessWordHtml = "";
 		this.wordToGuess = this.selectRandomItem(this.carmakerList);
 		for (var i = 0; i < this.wordToGuess.length; i++) {
 			this.guessWordHtml += "<span class=\"underline\" id=\"char" + i + "\">&nbsp;</span>&nbsp;";
 		}
 		document.getElementById("word").innerHTML = this.guessWordHtml;
+		this.wordArr = this.wordToGuess.toLowerCase().split("");
 	},
 
 	evalGuess: function(letter) {
@@ -38,6 +42,11 @@ var Game = {
 			console.log("Good guess. " + letter);
 			this.updateElementById("msg", "Good guess! " + letter.toUpperCase() + " is in the word.");
 			this.revealLetter(letter);
+			this.wordArr = this.wordArr.filter(function(s) {
+				console.log("s is:" + s);
+				console.log(letter);
+				return s !== letter;
+			});
 		}
 		else {
 			console.log(letter + " is not in the word.");
@@ -50,7 +59,15 @@ var Game = {
 	},
 
 	evalWinLose: function() {
-
+		if (this.wordArr.length < 1 && this.guessesRemaining > 0) {
+			this.wins++;
+			this.updateElementById("msg", "Congratulations, you won!");
+			this.initRound();
+		}
+		else if (this.guessesRemaining < 1) {
+			this.updateElementById("msg", "Sorry, you lost!");
+			this.initRound();
+		}
 	},
 
 	updateUI: function() {
@@ -69,7 +86,7 @@ var Game = {
 	revealLetter: function(letter) {
 		for (var i = 0; i < this.wordToGuess.length; i++) {
 			if(letter == this.wordToGuess[i].toLowerCase()) {
-				this.updateElementById(("char" + i), this.wordToGuess[i]);
+				this.updateElementById("char" + i, this.wordToGuess[i]);
 			}
 		}
 	},

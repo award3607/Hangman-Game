@@ -61,3 +61,16 @@ span.letter {
 revealHidden needs to take a letter and an array of the indices where it goes
 
 updateElementById(("char" + index), letter) for each index
+
+
+document.getElementById('tag-id').innerHTML = '<ol><li>html data</li></ol>';
+
+
+evalWinOrLose() {
+	if all letters in word have been guessed && guess remaing > 0
+		player wins
+	else if guesses remaining < 1
+		player loses
+	else
+		do nothing //games continues
+}
