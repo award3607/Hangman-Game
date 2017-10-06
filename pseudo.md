@@ -67,10 +67,15 @@ document.getElementById('tag-id').innerHTML = '<ol><li>html data</li></ol>';
 
 
 evalWinOrLose() {
-	if all letters in word have been guessed && guess remaing > 0
+	if all letters in word have been guessed && guesses remaing > 0
 		player wins
 	else if guesses remaining < 1
 		player loses
 	else
-		do nothing //games continues
+		do nothing //game continues
 }
+
+need array that contains unique letters in word?
+	pop correctly guessed letters from this array?
+	when array.length = 0, all letters have been correctly guessed
+	trigger win condition

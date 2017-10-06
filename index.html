@@ -3,20 +3,36 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Gruppo|Racing+Sans+One" rel="stylesheet">
 	<title>Hangman</title>
 </head>
 <body>
-	<h1>Hangman Game</h1>
-	<h2>Automotive Edition</h2>
-	<p>Press any key to begin.</p>
-	<p>Wins: <span id="games-won">X</span></p>
-	<p id="word">xxx</p>
-	<p>Guesses remaining: <span id="guesses-remaining">X</span></p>
-	<p>Letters guessed: <span id="letters-guessed">Letters guessed placeholder</span></p>
-	<p id="msg"></p>
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="jumbo-h1">Hangman Game</h1>
+			<h2 class="jumbo-h2">Automotive Edition</h2>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4 well">
+				<p>Press any key to begin.</p>
+				<p>Wins: <span id="games-won">X</span></p>
+				<p id="word">xxx</p>
+				<p>Guesses remaining: <span id="guesses-remaining">&nbsp;</span></p>
+				<p>Letters guessed:</p>
+				<p><span id="letters-guessed">Letters guessed placeholder</span></p>
+				<p id="msg">&nbsp;</p>
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
 	
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>

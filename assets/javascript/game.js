@@ -1,5 +1,6 @@
 var Game = {
-	carmakerList: ["Ford", "Chevrolet", "Ferrari", "Lamborghini", "Maserati", "BMW", "Audi", "Mercedes", "Porsche", "Lotus", "McLaren"],
+	carmakerList: ["Ford", "Chevrolet", "Ferrari", "Lamborghini", "Maserati", "BMW", "Audi", "Mercedes", "Porsche", "Lotus", "McLaren",
+					"Honda", "Toyota", "Mitsubishi", "Subaru", "Nissan", "Datsun", "Mazda", "Volkswagen"],
 	wins: 0,
 	wordToGuess: "",
 	guessWordHtml: "",
@@ -43,8 +44,6 @@ var Game = {
 			this.updateElementById("msg", "Good guess! " + letter.toUpperCase() + " is in the word.");
 			this.revealLetter(letter);
 			this.wordArr = this.wordArr.filter(function(s) {
-				console.log("s is:" + s);
-				console.log(letter);
 				return s !== letter;
 			});
 		}
@@ -62,24 +61,27 @@ var Game = {
 		if (this.wordArr.length < 1 && this.guessesRemaining > 0) {
 			this.wins++;
 			this.updateElementById("msg", "Congratulations, you won!");
+			var audio = new Audio('assets/audio/car_pass.mp3');
+			audio.play();
 			this.initRound();
 		}
 		else if (this.guessesRemaining < 1) {
 			this.updateElementById("msg", "Sorry, you lost!");
+			var audio = new Audio('assets/audio/car_crash.mp3');
+			audio.play();
 			this.initRound();
 		}
 	},
 
 	updateUI: function() {
 		this.updateElementById("games-won", this.wins);
-		// this.updateElementById("word", this.guessWordHtml);
 		this.updateElementById("guesses-remaining", this.guessesRemaining);
 		this.updateElementById("letters-guessed", this.lettersGuessed.join(" "));
 	},
 
 	selectRandomItem: function(arr) {
 		var item = arr[((Math.floor(Math.random() * arr.length)))];
-		console.log(item);
+		// console.log(item);
 		return item;
 	},
 
@@ -94,13 +96,13 @@ var Game = {
 	updateElementById: function(id, value) {
 		var el = document.getElementById(id);
 		el.textContent = value.toString();
+		el.style.visibility = "visible";
 	},
 
 	startListener: function() {
 		var self = this;
 		document.onkeyup = function(event) {
 			console.log(event.key.toLowerCase());
-			// return event.key;
 			self.evalGuess(event.key.toLowerCase());
 		}
 	}
@@ -108,4 +110,3 @@ var Game = {
 };
 
 Game.initGame();
-// Game.startListener();
