@@ -22,12 +22,17 @@ body {
 	visibility: hidden;
 }
 
+.container {
+	padding-top: 20px;
+}
+
 .underline {
 	text-decoration: underline;
 }
 
 .jumbo-h1 {
 	font-family: 'Racing Sans One', cursive;
+	border-bottom: 1px solid black;
 }
 
 .jumbo-h2 {

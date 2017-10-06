@@ -20,6 +20,7 @@ var Game = {
 		this.guessesRemaining = this.wordToGuess.length + 10;
 		this.lettersGuessed = [];
 		this.updateUI();
+		this.updateElementById("msg", "");
 	},
 
 	setWord: function() {
@@ -58,18 +59,21 @@ var Game = {
 	},
 
 	evalWinLose: function() {
+		var self = this;
 		if (this.wordArr.length < 1 && this.guessesRemaining > 0) {
 			this.wins++;
 			this.updateElementById("msg", "Congratulations, you won!");
 			var audio = new Audio('assets/audio/car_pass.mp3');
 			audio.play();
-			this.initRound();
+			// this.initRound();
+			window.setTimeout(this.initRound.bind(this), 4000);
 		}
 		else if (this.guessesRemaining < 1) {
-			this.updateElementById("msg", "Sorry, you lost!");
+			this.updateElementById("msg", "Sorry, you lost. The word was " + this.wordToGuess + ".");
 			var audio = new Audio('assets/audio/car_crash.mp3');
 			audio.play();
-			this.initRound();
+			// this.initRound();
+			window.setTimeout(this.initRound.bind(this), 4000);
 		}
 	},
 

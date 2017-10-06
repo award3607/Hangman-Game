@@ -6,18 +6,26 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Gruppo|Racing+Sans+One" rel="stylesheet">
-	<title>Hangman</title>
+	<title>Hangman: Automotive Edition</title>
 </head>
 <body>
 	<div class="container">
-		<div class="jumbotron">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4 well text-center">
+				<h1 class="jumbo-h1">Hangman</h1>
+				<h2 class="jumbo-h2">Automotive Edition</h2>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+<!-- 		<div class="jumbotron">
 			<h1 class="jumbo-h1">Hangman Game</h1>
 			<h2 class="jumbo-h2">Automotive Edition</h2>
-		</div>
+		</div> -->
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4 well">
-				<p>Press any key to begin.</p>
+				<p>Press a key to enter your guess.</p>
 				<p>Wins: <span id="games-won">X</span></p>
 				<p id="word">xxx</p>
 				<p>Guesses remaining: <span id="guesses-remaining">&nbsp;</span></p>
@@ -25,6 +33,7 @@
 				<p><span id="letters-guessed">Letters guessed placeholder</span></p>
 				<p id="msg">&nbsp;</p>
 			</div>
+			<div class="col-md-4"></div>
 		</div>
 
 
